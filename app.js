@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 import("node-fetch");
+const app = require("express")();
 
 const { PING_URLS, MINUTES } = require("./utils/config");
 
@@ -15,3 +16,5 @@ cron.schedule(`*/${MINUTES} * * * *`, async () => {
     console.error(error);
   }
 });
+
+module.exports = app;
