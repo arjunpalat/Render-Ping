@@ -17,4 +17,8 @@ cron.schedule(`*/${MINUTES} * * * *`, async () => {
   }
 });
 
+app.get("/", (request, response) => {
+  response.status(200).send("OK");
+});
+
 module.exports = app;
