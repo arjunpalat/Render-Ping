@@ -1,9 +1,9 @@
 const cron = require("node-cron");
 import("node-fetch");
 
-const { PING_URLS } = require("./utils/config");
+const { PING_URLS, MINUTES } = require("./utils/config");
 
-cron.schedule("*/13 * * * *", async () => {
+cron.schedule(`*/${MINUTES} * * * *`, async () => {
   try {
     for (const url of PING_URLS) {
       const response = await fetch(url);
